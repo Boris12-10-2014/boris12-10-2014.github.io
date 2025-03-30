@@ -4,7 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños, Amor</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos y responsivos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header, main, footer {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem); /* Tamaño adaptable */
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.25rem); /* Tamaño adaptable */
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            color: #ff1493;
+            margin: 20px 0;
+        }
+
+        .play-button {
+            padding: 10px 20px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .play-button:hover {
+            background-color: #ff1493;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            color: #666;
+        }
+
+        /* Media queries para ajustes específicos */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                margin-bottom: 5px;
+            }
+            p {
+                margin-bottom: 15px;
+            }
+            .play-button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .play-button {
+                padding: 12px 25px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,32 +100,38 @@
         </section>
         <section>
             <h2>🎵 Canción Especial para Ti 🎶</h2>
-            <!-- Reproducción automática con los atributos adecuados -->
-            <audio id="audio" autoplay loop muted>
+            <audio id="audio" autoplay muted loop>
                 <source src="cumpleaños.mp3" type="audio/mp3">
                 Tu navegador no soporta el elemento de audio.
             </audio>
+            <button class="play-button" id="playButton">Activar Sonido</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Boris para Javiera.</p>
+        <p>© 2025 Boris para Javiera.</p>
     </footer>
 
     <script>
-        window.onload = function() {
-            var audio = document.getElementById('audio');
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('playButton');
 
-            // Intentar reproducir la música automáticamente
-            audio.play().then(function() {
-                // Si la reproducción es exitosa, quitar el mute después de 1 segundo
-                setTimeout(function() {
-                    audio.muted = false; // Eliminar el mute para que suene
-                }, 1000);
-            }).catch(function(error) {
-                console.log("Error al intentar reproducir la música automáticamente: " + error);
-            });
-        };
+        // Intentar reproducir automáticamente al cargar la página
+        audio.play().catch(function(error) {
+            console.log("Reproducción automática bloqueada: " + error);
+        });
+
+        // Activar sonido cuando el usuario haga clic en el botón
+        playButton.addEventListener('click', function() {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play();
+                playButton.textContent = "Pausar Sonido";
+            } else {
+                audio.pause();
+                playButton.textContent = "Activar Sonido";
+            }
+        });
     </script>
 </body>
 </html>
