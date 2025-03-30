@@ -1,111 +1,57 @@
-/* Reset de márgenes y padding */
-* {
+/* Fondo y tipografía */
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Fondo degradado */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: white;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Estilo general */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    line-height: 1.6;
-    text-align: center;
+h1, h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Encabezado */
-.hero {
-    background: linear-gradient(135deg, #ff9cbf, #c96d9c);
-    padding: 60px 20px;
-    border-bottom: 5px solid #ff3b68;
+/* Estilo para las secciones */
+.section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para los títulos */
+h1 {
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+/* Imagen */
+#imagen img {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Música */
+audio {
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+/* Animación para los títulos */
+h1, h2 {
     animation: fadeIn 2s ease-in-out;
 }
 
-.hero h1 {
-    font-size: 3.5em;
-    color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    animation: slideIn 1s ease-out;
-}
-
-.hero p {
-    font-size: 1.4em;
-    color: #ffffff;
-    margin-top: 15px;
-}
-
-/* Animación para el mensaje */
-.message {
-    padding: 40px 20px;
-    background-color: #f7c4d8;
-    animation: fadeInUp 1.5s ease-out;
-}
-
-.message h2 {
-    font-size: 2.2em;
-    color: #c96d9c;
-    margin-bottom: 15px;
-}
-
-.message p {
-    font-size: 1.3em;
-    color: #5f4b66;
-    margin-bottom: 25px;
-}
-
-.message .image {
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeInImage 2s ease-in-out forwards;
-}
-
-/* Pie de página */
-.footer {
-    background-color: #ff9cbf;
-    padding: 20px;
-    color: white;
-    font-size: 1.2em;
-}
-
-/* Animaciones */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInImage {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
