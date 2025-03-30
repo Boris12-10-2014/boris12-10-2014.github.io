@@ -7,29 +7,43 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Sección del saludo -->
-    <div class="section" id="saludo">
-        <h1>Feliz Cumpleaños, Mi Amor</h1>
-        <p>Hoy celebro tu existencia, y quiero que este día sea tan maravilloso como tú.</p>
-    </div>
+    <header>
+        <h1>Feliz Cumpleaños, Amor ❤️</h1>
+        <p>Te amo mucho y hoy es tu día especial.</p>
+    </header>
 
-    <!-- Sección de mensaje -->
-    <div class="section" id="mensaje">
-        <h2>Te Amo</h2>
-        <p>Con todo mi amor, Boris</p>
-    </div>
+    <main>
+        <section>
+            <p>Espero que este día esté lleno de amor, alegría y sorpresas. ¡Te quiero mucho!</p>
+        </section>
+        <section>
+            <h2>🎵 Canción Especial para Ti 🎶</h2>
+            <!-- Reproducción automática con los atributos adecuados -->
+            <audio id="audio" autoplay loop muted>
+                <source src="cumpleaños.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </section>
+    </main>
 
-    <!-- Sección de música -->
-    <div class="section" id="musica">
-        <audio controls autoplay loop>
-            <source src="ruta/a/tu/musica.mp3" type="audio/mp3">
-            Tu navegador no soporta el reproductor de audio.
-        </audio>
-    </div>
+    <footer>
+        <p>&copy; 2025 Boris para Javiera.</p>
+    </footer>
 
-    <!-- Sección de imagen -->
-    <div class="section" id="imagen">
-        <img src="ruta/a/tu/imagen.jpg" alt="Imagen sorpresa" />
-    </div>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('audio');
+
+            // Intentar reproducir la música automáticamente
+            audio.play().then(function() {
+                // Si la reproducción es exitosa, quitar el mute después de 1 segundo
+                setTimeout(function() {
+                    audio.muted = false; // Eliminar el mute para que suene
+                }, 1000);
+            }).catch(function(error) {
+                console.log("Error al intentar reproducir la música automáticamente: " + error);
+            });
+        };
+    </script>
 </body>
 </html>
