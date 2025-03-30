@@ -1,71 +1,230 @@
-/* Reemplaza toda la parte de tu CSS con esto */
-
+/* Reseteo de márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Fondo con confeti y gradiente suave */
 body {
-    font-family: 'Roboto', sans-serif;  /* Fuente moderna */
-    background-color: #f4f4f9;  /* Fondo gris suave */
-    color: #333;  /* Texto oscuro */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #ff9f9f, #ffd3e0); /* Degradado suave de colores pastel */
+    color: #444;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/diamond-sky.png'); /* Fondo con textura sutil */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
 }
 
+/* Confetti flotando en el fondo */
+@keyframes confetti {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+.confetti {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #ff1493;
+    border-radius: 50%;
+    animation: confetti 3s infinite linear;
+}
+
+.confetti:nth-child(1) {
+    left: 10%;
+    animation-duration: 4s;
+}
+
+.confetti:nth-child(2) {
+    left: 30%;
+    animation-duration: 4.5s;
+}
+
+.confetti:nth-child(3) {
+    left: 50%;
+    animation-duration: 3.8s;
+}
+
+.confetti:nth-child(4) {
+    left: 70%;
+    animation-duration: 4.2s;
+}
+
+.confetti:nth-child(5) {
+    left: 90%;
+    animation-duration: 5s;
+}
+
+/* Título principal */
 h1 {
     font-size: 3rem;
-    color: #FF6347;  /* Color rojo para el título */
+    color: #ff6347; /* Rojo pastel */
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-out;  /* Animación para aparecer lentamente */
+    text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.8);
+    font-weight: bold;
+    letter-spacing: 3px;
+    animation: bounceIn 1.5s ease-out;
 }
 
-h2 {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 20px;
+/* Animación de entrada del título */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
+/* Sección de contenido */
+section {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px rgba(255, 105, 180, 0.4);
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Párrafo con estilo de cumpleaños */
 p {
     font-size: 1.2rem;
-    color: #666;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 20px;
+    color: #ff1493;
+    margin: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.8);
 }
 
-/* Animación de desvanecimiento para los elementos */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* Botón decorativo */
+button {
+    background-color: #ff6347; /* Tomate */
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
 }
 
-.audio-container {
+button:hover {
+    background-color: #ff1493;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.8);
+}
+
+/* Imágenes con tema de cumpleaños */
+img {
+    width: 180px;
+    height: auto;
     margin-top: 20px;
-    text-align: center;
+    animation: rotateIn 2s ease-in-out;
 }
 
+/* Animación de entrada de la imagen */
+@keyframes rotateIn {
+    0% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+
+/* Reproductor de audio estilizado */
 audio {
+    margin-top: 30px;
     width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
-    background-color: #FF6347;  /* Fondo rojo */
-    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.4);
 }
 
+/* Footer de la página */
 footer {
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #777;
+    color: #ff1493;
+    font-style: italic;
 }
 
-/* Añadir una sombra suave al contenedor */
-.container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    background-color: white;
-    max-width: 900px;
-    margin: 0 auto;
+footer p {
+    font-size: 1rem;
+    color: #ff6347;
+    text-decoration: underline;
+}
+
+/* Globos decorativos flotantes */
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+.balloon {
+    position: absolute;
+    bottom: 10%;
+    animation: balloonFloat 4s ease-in-out infinite;
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    animation-duration: 4s;
+}
+
+.balloon:nth-child(2) {
+    left: 30%;
+    animation-duration: 4.5s;
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    animation-duration: 3.8s;
+}
+
+.balloon:nth-child(4) {
+    left: 70%;
+    animation-duration: 4.2s;
+}
+
+.balloon:nth-child(5) {
+    left: 90%;
+    animation-duration: 5s;
 }
